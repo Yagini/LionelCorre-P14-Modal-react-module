@@ -27,6 +27,7 @@ function App() {
   );
 }
 ```
+![Default modal](./src/lib/assets/default-modal.png)
 
 In your modal Modal component you can personalize your content
 
@@ -51,12 +52,35 @@ function App() {
   );
 }
 ```
+![Custom Modal contain](./src/lib/assets/modal-custom-contain.png)
+
+Modal is basically responsive, scroll bar is appear if the text is very long
+
+![modal responsive](./src/lib/assets/modal-responsive.png)
+
+## Modal Css
+
+Modal have a basic css page if you want to use 
+
+```jsx 
+import "modal-react-module/dist/components/Modal.css" 
+```
+or if you want personalize it you can make your own css page
+
+```jsx 
+import "modal-react-module/dist/components/Modal.css"
+import "../example/custom.css 
+```
+
+You can find all class using on the default css here 
+
+- [Modal.css](https://github.com/Yagini/LionelCorre-P14-Modal-react-module/blob/main/src/lib/components/Modal.css)
 
 ## Props
 
 All of native modal-react-module props can be passed to the component.
 
-### `Defaults Props`
+### *`Defaults Props`*
 
 showModal and setShowModal is using for make a modal appear
 
@@ -107,9 +131,9 @@ function App() {
 }
 ```
 
-### `Optionnal props`
+## `Optionnal props`
 
-#### `blockClose?: boolean`
+### *`blockClose?: boolean`*
 
 If blockClose is true you can't close the modal with click and escape button
 
@@ -125,7 +149,7 @@ If blockClose is true you can't close the modal with click and escape button
 </Modal>
 ```
 
-#### `showClose?: boolean`
+### *`showClose?: boolean`*
 
 For hiding the close button.
 
@@ -134,8 +158,9 @@ For hiding the close button.
   <p className="text__color">Content</p>
 </Modal>
 ```
+![show close](./src/lib/assets/showclose.png)
 
-#### `showFade?: Boolean`
+### *`showFade?: Boolean`*
 
 You can add a fade effect, the fade effect prevent the showing of the spinner
 
@@ -147,67 +172,13 @@ You can add a fade effect, the fade effect prevent the showing of the spinner
 
 ## Contribute
 
-In the project directory, you can run:
+### You want to contribute ?
 
-### `npm start`
+- fork the repository here: 
+    - [Modal-react-module](https://github.com/Yagini/LionelCorre-P14-Modal-react-module)
+- npm install
+- npm run build before using 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## License
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+MIT

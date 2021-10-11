@@ -68,7 +68,7 @@ function Modal({
                   onClick={blockClose ? close : ""}
                 />
               ) : null}
-              <div className={"modal__contain"}>{props.children}</div>
+              <div className={"modal__contain"} onClick={blockClose = false}>{props.children}</div>
             </div>
           </div>
         </div>,

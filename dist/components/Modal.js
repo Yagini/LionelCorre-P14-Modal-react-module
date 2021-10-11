@@ -89,7 +89,8 @@ function Modal(_ref) {
     "aria-label": "Close modal",
     onClick: blockClose ? close : ""
   }) : null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal__contain"
+    className: "modal__contain",
+    onClick: blockClose = false
   }, props.children)))), document.body) : showSpinner ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement("div", {
     className: "modal__layout"
   }, /*#__PURE__*/_react.default.createElement(_ModalSpinner.default, null)), document.body) : null;
