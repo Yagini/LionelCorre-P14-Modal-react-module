@@ -15,7 +15,7 @@ var _ai = require("react-icons/ai");
 
 var _ModalSpinner = _interopRequireDefault(require("./ModalSpinner"));
 
-const _excluded = ["blockClose", "showModal", "setShowModal", "showClose", "showFade", "showSpinner", "setShowSpinner"];
+const _excluded = ["unLockClose", "showModal", "setShowModal", "showClose", "showFade", "showSpinner", "setShowSpinner"];
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28,13 +28,14 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
 /**
- * component modal have a multiple props for personalize the modal
+ * component modal have a multiple props for personalize the modal,
+ * Any props have a default property and over have a default props in the useModal hooks
  * @param {props} props props for the component Modal
  * @returns
  */
 function Modal(_ref) {
   let {
-    blockClose = true,
+    unLockClose = true,
     showModal,
     setShowModal,
     showClose = true,
@@ -54,7 +55,7 @@ function Modal(_ref) {
     }
   }, [setShowModal, showModal]);
   (0, _react.useEffect)(() => {
-    if (blockClose) {
+    if (unLockClose) {
       window.addEventListener("keyup", Keypress);
       return () => window.removeEventListener("keyup", Keypress);
     }
@@ -80,20 +81,18 @@ function Modal(_ref) {
   return showModal ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement("div", {
     className: [showFade ? "modal__fade-in" : "", fadeOut].join(" ")
   }, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal__layout",
-    onClick: blockClose ? close : ""
+    className: "modal__layout"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal__container"
   }, showClose ? /*#__PURE__*/_react.default.createElement(_ai.AiFillCloseCircle, {
     className: "modal__close-btn",
     "aria-label": "Close modal",
-    onClick: blockClose ? close : ""
-  }) : null, /*#__PURE__*/_react.default.createElement("div", {
-    className: "modal__contain",
-    onClick: blockClose = false
+    onClick: unLockClose ? close : ""
+  }) : "", /*#__PURE__*/_react.default.createElement("div", {
+    className: "modal__contain"
   }, props.children)))), document.body) : showSpinner ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement("div", {
     className: "modal__layout"
-  }, /*#__PURE__*/_react.default.createElement(_ModalSpinner.default, null)), document.body) : null;
+  }, /*#__PURE__*/_react.default.createElement(_ModalSpinner.default, null)), document.body) : "";
 }
 
 var _default = Modal;

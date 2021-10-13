@@ -1,23 +1,25 @@
 import React, { useCallback, useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import { AiFillCloseCircle } from "react-icons/ai";
+import CustomIcons from "./CustomIcons";
 
 import ModalSpinner from "./ModalSpinner";
 
 /**
- * component modal have a multiple props for personalize the modal
+ * component modal have a multiple props for personalize the modal,
+ * Any props have a default property and over have a default props in the useModal hooks
  * @param {props} props props for the component Modal
  * @returns
  */
 
 function Modal({
-  blockClose = true,
+  icon = "cross",
   showModal,
+  showSpinner,
   setShowModal,
+  setShowSpinner,
   showClose = true,
   showFade = false,
-  showSpinner,
-  setShowSpinner,
+  unLockClose = true,
   ...props
 }) {
   /**
@@ -28,17 +30,18 @@ function Modal({
     (e) => {
       if (e.key === "Escape" && showModal) {
         setShowModal(!showModal);
+        setShowSpinner(!showSpinner);
       }
     },
-    [setShowModal, showModal]
+    [setShowModal, showModal, setShowSpinner, showSpinner]
   );
 
   useEffect(() => {
-    if (blockClose) {
+    if (unLockClose) {
       window.addEventListener("keyup", Keypress);
       return () => window.removeEventListener("keyup", Keypress);
     }
-  }, [Keypress]);
+  }, [Keypress, unLockClose]);
 
   /**
    * fadeOut function, make a delay when the modal closed for get fade out animation
@@ -59,16 +62,18 @@ function Modal({
   return showModal
     ? ReactDOM.createPortal(
         <div className={[showFade ? "modal__fade-in" : "", fadeOut].join(" ")}>
-          <div className="modal__layout" onClick={blockClose ? close : ""}>
+          <div className="modal__layout">
             <div className="modal__container">
               {showClose ? (
-                <AiFillCloseCircle
-                  className="modal__close-btn"
-                  aria-label="Close modal"
-                  onClick={blockClose ? close : ""}
+                <CustomIcons
+                  icon={icon}
+                  unLockClose={unLockClose}
+                  close={close}
                 />
-              ) : null}
-              <div className={"modal__contain"} onClick={blockClose = false}>{props.children}</div>
+              ) : (
+                ""
+              )}
+              <div className={"modal__contain"}>{props.children}</div>
             </div>
           </div>
         </div>,
@@ -81,7 +86,7 @@ function Modal({
         </div>,
         document.body
       )
-    : null;
+    : "";
 }
 
 export default Modal;

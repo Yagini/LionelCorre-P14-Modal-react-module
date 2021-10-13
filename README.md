@@ -27,9 +27,16 @@ function App() {
   );
 }
 ```
+
 ![Default modal](./src/lib/assets/default-modal.png)
 
-In your modal Modal component you can personalize your content
+In your modal Modal component you can personalize your content for this we pass the content with a spread operator in the props and we use the props with a children
+
+```jsx
+function Modal({ ...props }) {
+  return <div>{props.children}</div>;
+}
+```
 
 ```jsx
 import React from "react";
@@ -52,6 +59,7 @@ function App() {
   );
 }
 ```
+
 ![Custom Modal contain](./src/lib/assets/modal-custom-contain.png)
 
 Modal is basically responsive, scroll bar is appear if the text is very long
@@ -60,19 +68,20 @@ Modal is basically responsive, scroll bar is appear if the text is very long
 
 ## Modal Css
 
-Modal have a basic css page if you want to use 
+Modal have a basic css page if you want to use
 
-```jsx 
-import "modal-react-module/dist/components/Modal.css" 
+```jsx
+import "modal-react-module/dist/components/Modal.css";
 ```
+
 or if you want personalize it you can make your own css page
 
-```jsx 
+```jsx
 import "modal-react-module/dist/components/Modal.css"
-import "../example/custom.css 
+import "../example/custom.css
 ```
 
-You can find all class using on the default css here 
+You can find all class using on the default css here
 
 - [Modal.css](https://github.com/Yagini/LionelCorre-P14-Modal-react-module/blob/main/src/lib/components/Modal.css)
 
@@ -80,7 +89,7 @@ You can find all class using on the default css here
 
 All of native modal-react-module props can be passed to the component.
 
-### *`Defaults Props`*
+### _`Defaults Props`_
 
 showModal and setShowModal is using for make a modal appear
 
@@ -133,9 +142,9 @@ function App() {
 
 ## `Optionnal props`
 
-### *`blockClose?: boolean`*
+### _`unLockClose?: boolean`_
 
-If blockClose is true you can't close the modal with click and escape button
+If unLockClose is true you can't close the modal with click and escape button
 
 ```jsx
 <Modal
@@ -143,13 +152,13 @@ If blockClose is true you can't close the modal with click and escape button
   setShowModal={setShowModal}
   showSpinner={showSpinner}
   setShowSpinner={setShowSpinner}
-  blockClose={true}
+  unLockClose={true}
 >
   <p className="text__color">Content</p>
 </Modal>
 ```
 
-### *`showClose?: boolean`*
+### _`showClose?: boolean`_
 
 For hiding the close button.
 
@@ -158,9 +167,10 @@ For hiding the close button.
   <p className="text__color">Content</p>
 </Modal>
 ```
+
 ![show close](./src/lib/assets/showclose.png)
 
-### *`showFade?: Boolean`*
+### _`showFade?: Boolean`_
 
 You can add a fade effect, the fade effect prevent the showing of the spinner
 
@@ -170,14 +180,42 @@ You can add a fade effect, the fade effect prevent the showing of the spinner
 </Modal>
 ```
 
+### _`icon?: string`_
+
+You can custom the close icon. </br>
+By default the modal have four type of icon: "cross", "exclamation", "heart", "star".</br> 
+But if you want your one you just have to change css property on your custom css file. </br> (default className: modal__close-btn)
+
+```jsx
+<Modal showModal={showModal} setShowModal={setShowModal} icon="cross">
+  <p>Content</p>
+</Modal>
+```
+![cross](./src/lib/assets/cross.png) ![exclamation](./src/lib/assets/exclamation.png)![cross](./src/lib/assets/heart.png) ![star](./src/lib/assets/star.png)
+
+### _`default state of the props and default state in the hook useModal`_
+
+```jsx
+  icon = "cross"
+  unLockClose = true,
+  showClose = true,
+  showFade = false,
+  ...props
+```
+
+```jsx
+const [isShowingModal, setIsShowingModal] = useState(false);
+const [isShowingSpinner, setIsShowingSpinner] = useState(false);
+```
+
 ## Contribute
 
 ### You want to contribute ?
 
-- fork the repository here: 
-    - [Modal-react-module](https://github.com/Yagini/LionelCorre-P14-Modal-react-module)
+- fork the repository here:
+  - [Modal-react-module](https://github.com/Yagini/LionelCorre-P14-Modal-react-module)
 - npm install
-- npm run build before using 
+- npm run build before using
 
 ## License
 

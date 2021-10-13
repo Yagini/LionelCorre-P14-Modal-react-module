@@ -9,6 +9,10 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _react = require("react");
 
+/**
+ * Hook useModal manage display of Modal and the spinner
+ * @returns props
+ */
 const useModal = () => {
   const [isShowingModal, setIsShowingModal] = (0, _react.useState)(false);
   const [isShowingSpinner, setIsShowingSpinner] = (0, _react.useState)(false);

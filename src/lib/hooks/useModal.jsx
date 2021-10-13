@@ -1,5 +1,10 @@
 import { useState } from "react";
 
+/**
+ * Hook useModal manage display of Modal and the spinner
+ * @returns props
+ */
+
 const useModal = () => {
   const [isShowingModal, setIsShowingModal] = useState(false);
   const [isShowingSpinner, setIsShowingSpinner] = useState(false)

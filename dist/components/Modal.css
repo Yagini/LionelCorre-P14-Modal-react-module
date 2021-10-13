@@ -1,3 +1,11 @@
+/* 
+  Default Css for the Modal :
+  modal__layout =  background around the modal body
+  modal__container = body of the modal
+  modal__contain = specifity for responsive contain of the modal
+  modal__close-btn = close button css
+*/
+
 .modal__layout {
   display: block;
   background-color: rgba(0, 0, 0, 0.75);
@@ -28,13 +36,15 @@
   left: 15px;
   vertical-align: middle;
   width: 90%;
-  z-index: 2;
+  z-index: 10;
 }
 
 .modal__contain {
   overflow-y: auto;
   overflow-x: clip;
+  min-height: 150px;
   max-height: 500px;
+  z-index: 20;
 }
 
 .modal__close-btn {
@@ -52,6 +62,13 @@
 }
 
 /** Animations Spinner and fade*/
+
+/*
+  modal__fade-in = animation when modal open
+  modal__fade-out = animation when modal close
+  @-webkit-keyframes fadeInOpacity and keyframes fadeInOpacity = opacity effect
+  @-webkit-keyframes fadeOutOpacity and keyframes fadeOutOpacity = opacity effect 
+*/
 
 .modal__fade-in {
   -webkit-animation: fadeInOpacity;
@@ -73,30 +90,6 @@
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-duration: 2s;
-}
-
-.modal__spinner-loading {
-  border-radius: 50px;
-  border: 6px solid #bec786;
-  height: 50px;
-  position: relative;
-  width: 50px;
-  top: 250px;
-  left: 140px;
-}
-
-.modal__spinner-loading:after {
-  content: "";
-  border-radius: 50px;
-  border: 6px solid transparent;
-  border-top-color: #4c640d;
-  bottom: -6px;
-  left: -6px;
-  right: -6px;
-  top: -6px;
-  position: absolute;
-  -webkit-animation: 1.5s linear infinite spin;
-  animation: 1.5s linear infinite spin;
 }
 
 @-webkit-keyframes fadeInOpacity {
@@ -133,6 +126,35 @@
   100% {
     opacity: 0;
   }
+}
+
+/*
+  modal__spinner-loading = fixed circle of the spinner
+  modal__spinner-loading:after = rotated circle of the spinner
+  @-webkit-keyframes spin and keyframes spin = rotate effect
+*/
+.modal__spinner-loading {
+  border-radius: 50px;
+  border: 6px solid #bec786;
+  height: 50px;
+  position: relative;
+  width: 50px;
+  top: 250px;
+  left: 140px;
+}
+
+.modal__spinner-loading:after {
+  content: "";
+  border-radius: 50px;
+  border: 6px solid transparent;
+  border-top-color: #4c640d;
+  bottom: -6px;
+  left: -6px;
+  right: -6px;
+  top: -6px;
+  position: absolute;
+  -webkit-animation: 1.5s linear infinite spin;
+  animation: 1.5s linear infinite spin;
 }
 
 @-webkit-keyframes spin {
