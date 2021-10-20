@@ -30,7 +30,7 @@ function App() {
 
 ![Default modal](./src/lib/assets/default-modal.png)
 
-In your modal Modal component you can personalize your content for this we pass the content with a spread operator in the props and we use the props with a children
+In your modal Modal component you can personalize your content to be able to do that we pass the content through a spread operator in the props and we use the props like a children
 
 ```jsx
 function Modal({ ...props }) {
@@ -172,8 +172,18 @@ For hiding the close button.
 
 ### _`showFade?: Boolean`_
 
-You can add a fade effect, the fade effect prevent the showing of the spinner
+You can add a fade effect, the fade effect prevents visibility of the spinner
 
+To customize your fade effect you must change the css content properties in your css custom file
+
+```css
+//default className
+
+.modal__fade-in 
+.modal__fade-out
+@keyframes: fadeInOpacity
+@keyframes: fadeOutOpacity
+```
 ```jsx
 <Modal showModal={showModal} setShowModal={setShowModal} showFade={true}>
   <p>Content</p>
@@ -186,6 +196,12 @@ You can custom the close icon. </br>
 By default the modal have four type of icon: "cross", "exclamation", "heart", "star".</br> 
 But if you want your one you just have to change css property on your custom css file. </br> (default className: modal__close-btn)
 
+```css
+//default className
+
+.modal__close-btn
+```
+
 ```jsx
 <Modal showModal={showModal} setShowModal={setShowModal} icon="cross">
   <p>Content</p>
@@ -193,7 +209,7 @@ But if you want your one you just have to change css property on your custom css
 ```
 ![cross](./src/lib/assets/cross.png) ![exclamation](./src/lib/assets/exclamation.png)![cross](./src/lib/assets/heart.png) ![star](./src/lib/assets/star.png)
 
-### _`default state of the props and default state in the hook useModal`_
+## _`default state of the props and default state in the hook useModal`_
 
 ```jsx
   icon = "cross"

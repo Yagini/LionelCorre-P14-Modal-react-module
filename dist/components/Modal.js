@@ -11,11 +11,11 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactDom = _interopRequireDefault(require("react-dom"));
 
-var _ai = require("react-icons/ai");
+var _CustomIcons = _interopRequireDefault(require("./CustomIcons"));
 
 var _ModalSpinner = _interopRequireDefault(require("./ModalSpinner"));
 
-const _excluded = ["unLockClose", "showModal", "setShowModal", "showClose", "showFade", "showSpinner", "setShowSpinner"];
+const _excluded = ["icon", "showModal", "showSpinner", "setShowModal", "setShowSpinner", "showClose", "showFade", "unLockClose"];
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29,19 +29,20 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 
 /**
  * component modal have a multiple props for personalize the modal,
- * Any props have a default property and over have a default props in the useModal hooks
+ * Any props have a default property and have a default props in the useModal hooks
  * @param {props} props props for the component Modal
  * @returns
  */
 function Modal(_ref) {
   let {
-    unLockClose = true,
+    icon = "cross",
     showModal,
+    showSpinner,
     setShowModal,
+    setShowSpinner,
     showClose = true,
     showFade = false,
-    showSpinner,
-    setShowSpinner
+    unLockClose = true
   } = _ref,
       props = _objectWithoutProperties(_ref, _excluded);
 
@@ -52,14 +53,15 @@ function Modal(_ref) {
   const Keypress = (0, _react.useCallback)(e => {
     if (e.key === "Escape" && showModal) {
       setShowModal(!showModal);
+      setShowSpinner(!showSpinner);
     }
-  }, [setShowModal, showModal]);
+  }, [setShowModal, showModal, setShowSpinner, showSpinner]);
   (0, _react.useEffect)(() => {
     if (unLockClose) {
       window.addEventListener("keyup", Keypress);
       return () => window.removeEventListener("keyup", Keypress);
     }
-  }, [Keypress]);
+  }, [Keypress, unLockClose]);
   /**
    * fadeOut function, make a delay when the modal closed for get fade out animation
    * add a className modal__fade-out
@@ -84,10 +86,10 @@ function Modal(_ref) {
     className: "modal__layout"
   }, /*#__PURE__*/_react.default.createElement("div", {
     className: "modal__container"
-  }, showClose ? /*#__PURE__*/_react.default.createElement(_ai.AiFillCloseCircle, {
-    className: "modal__close-btn",
-    "aria-label": "Close modal",
-    onClick: unLockClose ? close : ""
+  }, showClose ? /*#__PURE__*/_react.default.createElement(_CustomIcons.default, {
+    icon: icon,
+    unLockClose: unLockClose,
+    close: close
   }) : "", /*#__PURE__*/_react.default.createElement("div", {
     className: "modal__contain"
   }, props.children)))), document.body) : showSpinner ? /*#__PURE__*/_reactDom.default.createPortal( /*#__PURE__*/_react.default.createElement("div", {

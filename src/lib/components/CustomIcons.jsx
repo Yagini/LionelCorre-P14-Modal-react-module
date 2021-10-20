@@ -3,6 +3,12 @@ import { RiCloseFill } from "react-icons/ri";
 import { BsExclamation } from "react-icons/bs";
 import { TiHeart, TiStar } from "react-icons/ti";
 
+/**
+ * Component for customize the close icon of the modal
+ * @param {props} props the props of the component
+ * @returns 
+ */
+
 function CustomIcons({ icon, unLockClose, close }) {
   if (icon === "cross") {
     return (

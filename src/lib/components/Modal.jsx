@@ -6,7 +6,7 @@ import ModalSpinner from "./ModalSpinner";
 
 /**
  * component modal have a multiple props for personalize the modal,
- * Any props have a default property and over have a default props in the useModal hooks
+ * Any props have a default property and have a default props in the useModal hooks
  * @param {props} props props for the component Modal
  * @returns
  */
