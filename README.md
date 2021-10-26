@@ -228,10 +228,7 @@ const [isShowingSpinner, setIsShowingSpinner] = useState(false);
 
 ### You want to contribute ?
 
-- fork the repository here:
-  - [Modal-react-module](https://github.com/Yagini/LionelCorre-P14-Modal-react-module)
-- npm install
-- npm run build before using
+Go there [CONTRIBUTING.md](https://github.com/Yagini/LionelCorre-P14-Modal-react-module/blob/main/CONTRIBUTING.md)
 
 ## License
 
